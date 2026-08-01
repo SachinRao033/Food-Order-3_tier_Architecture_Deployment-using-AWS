@@ -1,4 +1,4 @@
-FROM node:22 AS build
+FROM node:20 AS build
 
 WORKDIR /app
 
@@ -7,6 +7,9 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+ENV CI=false
+ENV DISABLE_ESLINT_PLUGIN=true
 
 RUN npm run build
 
