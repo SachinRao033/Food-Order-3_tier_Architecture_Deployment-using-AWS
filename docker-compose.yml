@@ -9,11 +9,11 @@ services:
 
     container_name: food-order-backend
 
-    ports:
-      - "5000:5000"
-
     env_file:
       - ./backend/.env
+
+    expose:
+      - "5000"
 
     restart: always
 
@@ -41,3 +41,4 @@ services:
 networks:
   food-network:
     driver: bridge
+    
