@@ -12,7 +12,8 @@ function App() {
 
     // Your EC2 public IP
     // Nginx forwards /api requests to backend Docker container
-    const API_URL = process.env.REACT_APP_API_URL;
+    //const API_URL = process.env.REACT_APP_API_URL;
+    const response = await fetch(`${API_URL}/foods`);
 
     // Load food from backend
     useEffect(() => {
