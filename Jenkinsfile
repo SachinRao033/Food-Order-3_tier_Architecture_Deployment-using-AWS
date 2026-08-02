@@ -17,15 +17,15 @@ pipeline {
 
         stage('Verify Docker') {
             steps {
-                sh 'docker --version'
-                sh 'docker compose version'
+                sh 'sudo docker --version'
+                sh 'sudo docker-compose version'
             }
         }
 
         stage('Stop Existing Containers') {
             steps {
                 sh '''
-                docker compose down || true
+                sudo docker-compose down || true
                 '''
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 sh '''
-                docker compose build
+                sudo docker-compose build
                 '''
             }
         }
@@ -41,7 +41,7 @@ pipeline {
         stage('Start Containers') {
             steps {
                 sh '''
-                docker compose up -d
+                sudo docker-compose up -d
                 '''
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage('Verify Deployment') {
             steps {
                 sh '''
-                docker ps
+                sudo docker ps
                 '''
             }
         }
@@ -72,7 +72,7 @@ pipeline {
 
         always {
 
-            sh 'docker ps -a'
+            sh 'sudo docker ps -a'
 
         }
 
