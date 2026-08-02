@@ -61,6 +61,8 @@ pipeline {
         success {
 
             echo "Deployment Successful"
+            echo "http://13.206.120.60:81 --> Frontend"
+            echo "http://13.206.120.60:5000 --> Backend"
 
         }
 
